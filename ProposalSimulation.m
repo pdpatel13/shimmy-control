@@ -3,8 +3,6 @@ clear all
 close all
 clear memory
 
-Parameters & Initialization
-%Parameters
 V= 0.1;
 a=0.1;
 e=0.1;
@@ -51,11 +49,14 @@ M4 = kappa/V * dpsi;
 
 t=60;
 dt = 1;
-vec_time = (0:dt:t);
+vec_time = (0:dt:t-1);
 psi_vals = zeros(1,t/dt);
 dpsi_vals = zeros(1,t/dt);
 y1_vals = zeros(1,t/dt);
-V_vals=0:80/t:80;
+psi_vals(1) = psi;
+dpsi_vals(1) = psi;
+y1_vals(1) = psi;
+V_vals=0:80/(t-1):80;
 
 for i=2:t
 
@@ -73,11 +74,11 @@ for i=2:t
     end
 
     c1 = c/Iz;
-    c2 = k/Iz + kappa/(V*Iz);
+    c2 = k/Iz + kappa/(V_vals(i)*Iz);
     c3 = Fz*(cMa-e*cFa)/Iz/sigma;
-    c4 = V*psi;
+    c4 = V_vals(i)*psi;
     c5 = e - a;
-    c6 = -V/sigma;
+    c6 = -V_vals(i)/sigma;
     
     M1 = c * psi;
     
@@ -85,11 +86,16 @@ for i=2:t
     
     M3 = Mz - e * Fy;
     
-    M4 = kappa/V * dpsi;
+    M4 = kappa/V_vals(i) * dpsi;
     
     y1 = c4 + c5*dpsi + c6*y1;
     y1_vals(i) = y1;
     
+    psi = dpsi;
+    psi_vals(i) = psi;
 
-    
+    dpsi = c1*psi + c2*dpsi + c3*y1_vals(i-1);
+    dpsi_vals(i) = dpsi;
 end
+
+plot(vec_time,psi_vals,'--r','LineWidth',2)
