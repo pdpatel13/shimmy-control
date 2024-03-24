@@ -4,11 +4,11 @@ This repository contains code and documentation for a shimmy control project.
 
 ## Overview
 
-Shimmy is the lateral oscillation in the landing gear of an aircraft during high-speed taxiing or landing. It's still a WIP.
+Shimmy is the lateral oscillation in the landing gear of an aircraft during high-speed taxiing or landing. 
 
 ## Contents
 
-- `ProposalSimulation`: Contains MATLAB code for simulating the shimmy control system.
+- `ProposalSimulation`: Contains MATLAB code for simulating the shimmy control system. It's still a WIP.
 
 ## Contributors
 
