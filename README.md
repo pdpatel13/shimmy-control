@@ -12,6 +12,6 @@ Shimmy is the lateral oscillation in the landing gear of an aircraft during high
 
 ## Contributors
 
-- [Andrew Potts]: [Your Email]
-- [Cristopher Dyson]: [Contributor 2 Email]
-- [Prayag Patel]: [Contributor 3 Email]
+- [Andrew Potts]: [Email]
+- [Cristopher Dyson]: [Email]
+- [Prayag Patel]: [Email]

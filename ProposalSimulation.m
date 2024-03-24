@@ -27,9 +27,16 @@ y1=0.1;
 
 alpha = y1/sigma;
 
-Mz = Fz*cMa*alpha_g/180*sin(180*alpha/alpha_g);
-
-Fy = cFa*delta*Fz*(alpha/abs(alpha));
+if(alpha<=delta)
+    Fy=cFa*alpha*Fz;
+else
+    Fy=cFa*delta*Fz*(alpha/abs(alpha));
+end
+if(abs(alpha)<=alpha_g)
+    Mz = Fz*cMa*alpha_g/180*sin(180*alpha/alpha_g);
+else
+    Mz = 0;
+end
 
 M1 = c * psi;
 
